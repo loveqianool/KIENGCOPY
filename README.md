@@ -6,3 +6,5 @@
 可能有bug,请反馈.
 
 C V的 https://cp.anyknew.com/ 这个网站
+
+LOGO什么的自己改改吧,就一个控制器加2个页面.
