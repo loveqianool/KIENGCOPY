@@ -8,3 +8,9 @@
 C V的 https://cp.anyknew.com/ 这个网站
 
 LOGO什么的自己改改吧,就一个控制器加2个页面.
+
+## 安装
+
+1.导入数据库
+
+2.修改/application/database.php这个文件
