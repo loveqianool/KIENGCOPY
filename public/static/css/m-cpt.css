@@ -1,0 +1,607 @@
+html {
+    color: #666;
+    font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif;
+    background-color: #FFF;
+}
+
+body{
+    margin: 0;
+    font-size: 62.5%;
+    border: 0;
+    cursor: pointer;
+}
+
+hr{
+    margin: 0;
+}
+
+h1{
+    font-size: 3.8em;
+    font-weight: normal;
+}
+
+h2{
+    font-size: 1em;
+    font-weight: normal;
+    display: inline;
+}
+
+
+
+input,button,select,textarea{outline:none;}
+button{
+    cursor: pointer;
+}
+
+a{
+    color:#333333;
+    text-decoration: none;
+}
+a:hover{
+    color:#3DB4F1;
+}
+
+
+.helper{
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.cpt{
+    position: relative;
+}
+
+.btn-box{
+    text-align: center;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+}
+
+.cp-checkbox-div{
+    flex: 1;
+    text-align: left;
+}
+.cp-checkbox{
+    display: none;
+}
+
+.cp-checkbox:checked + label {
+    background-color: #3DB4F1;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05),inset 0px -12px 10px -12px rgba(0,0,0,0.05),inset 12px 10px -12px rgba(255,255,255,0.1);
+}
+
+.cp-checkbox + label {
+    background-color: #ffffff;
+    border: 1px solid #3DB4F1;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+    line-height: 20px;
+    vertical-align: middle;
+    width: 13px;
+    height: 13px;
+}
+
+.cp-checkbox:checked + label:after {
+    display: block;
+    width: .5rem;
+    height: .2rem;
+    border-right: 2px solid #fff;
+    border-top: 2px solid #fff;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    margin-top: -.12rem;
+    margin-left: -.3rem;
+    transform: rotate(-225deg);
+    z-index: 2;
+    content: "";
+}
+
+.btn{
+    cursor: pointer;
+    background-color: #3DB4F1;
+    width: 100px;
+    height:50px;
+    line-height: 50px;
+    font-size: 2em;
+    border: 0;
+    color: #FFFFFF;
+    border-radius: 5px;
+}
+
+.header{
+    text-align: center;
+    margin: auto;
+}
+
+.header .logo-box{
+    margin: 5px auto;
+}
+.share{
+    padding: 10px;
+    padding-top: 0;
+}
+.share-types{
+    margin: auto;
+    margin-bottom: 20px;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    position: relative;
+    border-bottom: 2px solid #E2E2E2;
+}
+.share-types .op{
+    cursor: pointer;
+    display: inline-block;
+    font-size: 2em;
+    width: 50%;
+    float: left;
+    text-align: center;
+    line-height: 50px;
+    height: 50px;
+    position: relative;
+}
+
+.share-types .op.active{
+    color: #3DB4F1;
+    border-bottom: 4px solid #3DB4F1;
+}
+
+#upload{
+    width: 80%;
+    margin: 40px auto;
+}
+
+.fileBox{
+    position: relative;
+    border:2px dashed #E3E3E3;
+    text-align: center;
+}
+
+.fileBox #uploadfile{
+    font-size: 1.5em;
+    position: absolute;
+    bottom:120px;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    color: #999999;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+}
+
+.fileInputP{
+    overflow: hidden;
+    background-color: #f8f8f8;
+    font-size: 1.8em;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 200px;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.fileInputP i{
+    display:inline-block;
+    width:60%;
+    height:60px;
+    color:#333;
+    text-align:center;
+    line-height:60px;
+    font-style: normal;
+    cursor: pointer;
+    margin: 0;
+}
+
+#fileInput{
+    display: none;
+}
+
+#fileSpan{
+    display:inline-block;
+    width:100%;
+    height:50px;
+    font-size:1.5em;
+    text-align:center;
+}
+
+#editor .ql-editor{
+  font-size: 20px;
+  color: #333333;
+  padding: 10px 25px;
+  height: 200px;
+
+}
+
+#editor .ql-editor img{
+    max-width: 500px;
+    margin: auto;
+    display: block;
+}
+
+#editor .ql-editor .ql-blank:before{
+  font-style: normal;
+  left: 25px;
+}
+
+#editor .ql-editor  li{
+  background-color: #FFF;
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 20px;
+}
+
+#editor .ql-editor  .ql-size-huge{
+    font-size: 1.8em;
+}
+#editor .ql-editor  .ql-size-large{
+  font-size: 1.3em;
+}
+#editor .ql-editor  .ql-size-small{
+  font-size: .8em;
+}
+
+.ql-toolbar.ql-snow {
+    border: 1px solid #E2E2E2;
+    text-align: left;
+}
+
+.ql-container.ql-snow {
+    border: 1px solid #E2E2E2;
+}
+
+#uploading{
+    margin-top: 120px;
+}
+
+#progress{
+    border-radius: 4px;
+    background-color: #ccc;
+    height: 8px;
+    margin: 16px auto;
+    text-align:left;
+    position:relative;
+    width: 100%;
+}
+
+#progress span{
+    display: inline-block;
+    height: 8px;
+    background-color: #3DB4F1;
+    border-radius: 4px;
+    position: absolute;
+    left: 0;
+    top:0;
+}
+
+.progress-hint{
+  text-align: center;
+  width: 100%;
+  font-size: 3.5em;
+  color: #3DB4F1;
+}
+
+
+.share-tag{
+    width: 100%;
+    margin: auto;
+}
+
+.share-tag .qr-box{
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    margin-top: 30px;
+    -moz-box-shadow: 0 0 10px #E2E2E2;
+    -webkit-box-shadow: 0 0 10px #E2E2E2;
+    box-shadow: 0 0 10px #E2E2E2;
+}
+
+.share-tag .hint{
+    text-align: center;
+    font-size: 1.5em;
+    color: #999999;
+    margin: 30px;
+    margin-bottom: 20px;
+}
+
+.share-tag .tag{
+    font-size: 3em;
+    color: #3DB4F1;
+    text-align: center;
+}
+
+.share-tag .re-share-box{
+    text-align: center;
+    margin: 20px;
+}
+
+.re-share{
+    background-color: #3DB4F1;
+    color: #FFFFFF;
+    font-size: 1.1em;
+    padding: 5px 15px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.share-nav{
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+}
+
+.share-nav .show-nav-share{
+    width: 30%;
+    float: left;
+    font-size: 2em;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    border-top: 1px solid #e2e2e2;
+    border-right: 1px solid #e2e2e2;
+}
+
+.share-nav .show-nav-share.active{
+    border-top: 0;
+    color: #3DB4F1;
+}
+
+.share-nav .show-nav-retrieve{
+    width: 30%;
+    float: left;
+    font-size: 2em;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    border-top: 1px solid #e2e2e2;
+    border-right: 1px solid #e2e2e2;
+}
+
+.share-nav .show-nav-retrieve.active{
+    border-top: 0;
+    color: #3DB4F1;
+}
+
+
+.share-nav .show-nav-login{
+    width: 39%;
+    float: left;
+    font-size: 2em;
+    height: 60px;
+    line-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #e2e2e2;
+}
+
+.share-nav .show-nav-login.active{
+    border-top: 0;
+    color: #3DB4F1;
+}
+
+.share-content.retrieve{
+    width: 100%;
+}
+
+.input-box{
+    vertical-align: middle;
+    display: block;
+    text-align: center;
+    width: 300px;
+    margin: 50px auto;
+}
+.input-box .rinput {
+    outline: none;
+    border: 0;
+    border-bottom: 1px solid #e2e2e2;
+    height: 60px;
+    line-height: 60px;
+    width: 200px;
+    color: #666;
+    font-size: 2em;
+    padding: 0 50px;
+    text-align: center;
+    letter-spacing: 3px;
+}
+
+.input-box .btn{
+    width: 200px;
+}
+
+.login-hint{
+    font-size: 1em;
+    color: #999999;
+    line-height: 16px;
+    padding-left: 20px;
+    position: relative;
+    text-align: left;
+    width: 180px;
+    margin: auto;
+}
+
+.login-hint:before{
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    top: 2px;
+    left: 0;
+    content: "";
+    display: inline-block;
+    background-image: url('https://f0cdn.anyknew.com/cptool/img/alert-info.png');
+    background-repeat: no-repeat;
+    background-size: 12px 12px;
+}
+
+.cpt-show{
+    margin: auto;
+}
+
+.cpt-file{
+    text-align: center;
+    margin: auto;
+    margin-top: 100px;
+    padding: 0 10px;
+}
+
+.cpt-file .dl-btn{
+    width: 250px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    letter-spacing: 8px;
+    background-color: #3DB4F1;
+    color: #fff;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 9px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.dl-btn img{
+    max-height: 50px;
+    max-width: 58px;
+    vertical-align: middle;
+}
+
+.cpt-file .orig{
+    font-size: 2.5em;
+    color: #666666;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+}
+.cpt-file .fsize{
+    font-size: 2em;
+    color: #999999;
+}
+
+
+.cpt-text{
+    font-size: 2em;
+    text-align: left;
+    margin: auto;
+    padding: 10px;
+}
+
+.cpt-text a{
+    color: #3DB4F1;
+}
+
+.cpt-text h1{
+    font-size: 2em;
+
+}
+
+.cpt-text h2{
+    font-size: 1.5em;
+
+}
+
+.cpt-text h3{
+    font-size: 1.3em;
+
+}
+
+
+.cpt-text h4{
+    font-size: 1.1em;
+
+}
+
+.fz-loading-mask {
+    display: none;
+    background-color: rgba(20, 20, 20, .35);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    text-align: center;
+    padding-top: 12rem;
+}
+
+.fz-loading-mask.show{
+     display: block;
+}
+
+
+.fz-loading-mask .loading {
+    display: inline-block;
+    margin: 15px 0;
+    width: 60px;
+    height: 60px;
+    font-size: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    position: relative;
+    border: 1px solid #fff;
+    -webkit-animation: loading-rotating ease 1.5s infinite;
+    animation: loading-rotating ease 1.5s infinite;
+}
+
+.fz-loading-mask .loading:before {
+     content: "";
+     position: absolute;
+     display: block;
+     top: 0;
+     left: 50%;
+     margin-top: -4px;
+     margin-left: -4px;
+     width: 8px;
+     height: 8px;
+     background-color: #fff;
+     border-radius: 50%;
+}
+
+.fz-loading-mask .load-hint{
+    display: block;
+    color: #FFFFFF;
+    font-size: 1.8em;
+}
+
+.show-header{
+    margin: auto;
+}
+
+.show-header .show-logo-box{
+    margin: 10px;
+    text-align: center;
+}
+
+.show-header .go-share{
+    width: 100px;
+    padding-right: 10px;
+    text-align: right;
+    line-height: 70px;
+    font-size: 2em;
+    color: #3DB4F1;
+}
+
+@keyframes loading-rotating {
+    0%{
+      transform: rotate(0);
+    }
+    100%{
+      transform: rotate(360deg);
+    }
+}
+
+.cp404{
+    margin: auto;
+    margin-top: 200px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666666;
+}

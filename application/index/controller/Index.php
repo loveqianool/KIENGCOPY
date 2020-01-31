@@ -8,7 +8,13 @@ class Index extends Controller {
 	// 首页
 	public function index() {
 		$domain = request()->domain();
+		if (request()->isMobile()) {
+			$css = true;
+		} else {
+			$css = false;
+		}
 		$this->assign('domain', $domain);
+		$this->assign('css', $css);
 		return $this->fetch('index/index');
 	}
 
@@ -85,6 +91,12 @@ class Index extends Controller {
 		if (empty($key) || strlen($key) != 4) {
 			return $this->redirect('/');
 		}
+		if (request()->isMobile()) {
+			$css = true;
+		} else {
+			$css = false;
+		}
+
 		$data = Db::table('data')->where('tag', $key)->find();
 
 		if ($data['num'] <= 0 || time() > strtotime($data['end_time']) || empty($data)) {
@@ -99,6 +111,7 @@ class Index extends Controller {
 		$this->assign('type', $type);
 		$this->assign('is', $is);
 		$this->assign('data', $data);
+		$this->assign('css', $css);
 		return $this->fetch('index/data');
 	}
 

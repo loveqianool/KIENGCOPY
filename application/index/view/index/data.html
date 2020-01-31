@@ -11,7 +11,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="format-detection" content="telephone=no">
 <link href="/static/css/quill.snow.min.css" rel="stylesheet">
-<link href="/static/css/cpt.css?rnd=190320" rel="stylesheet">
+{if $css}
+<link href="/static/css/m-cpt.css" rel="stylesheet">
+{else}
+<link href="/static/css/cpt.css" rel="stylesheet">
+{/if}
 <style type="text/css" media="screen">
 	a:hover
     { 

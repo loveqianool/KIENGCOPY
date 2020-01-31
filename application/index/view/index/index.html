@@ -1,18 +1,26 @@
 <!doctype html>
-<!-- KIENG博客 https://blog.kieng.cn -->
 <html>
 <head>
-<title>MJJ - 轻量级纯Web跨平台文件、文字分享工具</title>
 <meta charset="utf-8">
-<meta name="keywords" content="MJJ,Copytool,免安装传文件,  跨平台分享,Mac,Windows,Android,分享">
-<meta name="description" content="MJJ首页 跨系统免安装传文件, 跨平台分享工具，纯Web，IOS，MAC，Linux，Android互传">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>拷贝兔(Copytool) - 轻量级纯Web跨平台文件、文字分享工具</title>
+<meta name="keywords" content="拷贝兔,Copytool,免安装传文件,  跨平台分享,Mac,Windows,Android,分享">
+<meta name="description" content="拷贝兔首页 跨系统免安装传文件, 跨平台分享工具，纯Web，IOS，MAC，Linux，Android互传">
 <meta name="viewport" content="width=device-width">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="author" content="m.laibian.com">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="format-detection" content="telephone=no">
+<link rel="shortcut icon" href="https://f0cdn.anyknew.com/web/img/icons/favicon-32x32.png" type="image/png">
+<link rel="apple-touch-icon-precomposed" href="https://f0cdn.anyknew.com/web/img/icons/favicon-32x32.png">
 <link href="/static/css/quill.snow.min.css" rel="stylesheet">
-<link href="/static/css/cpt.css?rnd=190320" rel="stylesheet">
+{if $css}
+<link href="/static/css/m-cpt.css" rel="stylesheet">
+{else}
+<link href="/static/css/cpt.css" rel="stylesheet">
+{/if}
+<!--<link href="/st/css/m-cpt.css" rel="stylesheet">-->
 
 
 </head>
@@ -30,6 +38,7 @@
 <div class="cpt">
 <div class="s-and-r">
 <div class="share" id="share_div">
+{if !$css}
 <div class="share-bar" id="share_bar">
 <div class="show-share active" id="show_share">
 <div class="title">
@@ -51,6 +60,7 @@
 </div>
 </div>
 </div>
+{/if}
 <div class="share-content" id="share_ops">
 <div class="share-types">
 <div class="op active" id="show_share_file">
@@ -133,6 +143,27 @@
 </div>
 </div>
 </div>
+
+{if $css}
+<div class="share-nav" id="share_nav">
+<div class="show-nav-share active" id="share_nav_share">
+<div class="title">
+分享
+</div>
+</div>
+<div class="show-nav-retrieve" id="share_nav_retrieve">
+<div class="title">
+提取
+</div>
+</div>
+<div class="show-nav-login" id="share_nav_login">
+<div style="height: 37px;">
+<a href="https://www.anyknew.com" target="_blank"><img src="https://f0cdn.anyknew.com/static/anyknew-b.png" width="110"></a>
+</div>
+</div>
+</div>
+{/if}
+
 <div class="share-content qr" id="qr_ops" style="display: none;">
 <div class="qr-box">
 <img src="/qrwap.html" width="200">
