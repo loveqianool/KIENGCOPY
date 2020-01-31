@@ -1,0 +1,214 @@
+<!doctype html>
+<html>
+<head>
+<title>MJJ - 轻量级纯Web跨平台文件、文字分享工具</title>
+<meta charset="utf-8">
+<meta name="keywords" content="MJJ,Copytool,免安装传文件,  跨平台分享,Mac,Windows,Android,分享">
+<meta name="description" content="MJJ首页 跨系统免安装传文件, 跨平台分享工具，纯Web，IOS，MAC，Linux，Android互传">
+<meta name="viewport" content="width=device-width">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link href="/static/css/quill.snow.min.css" rel="stylesheet">
+<link href="/static/css/cpt.css?rnd=190320" rel="stylesheet">
+
+
+</head>
+<body>
+<div class="akheader">
+<div class="ak-logo-box">
+<!-- 左上角logo -->
+<a href="#"><img class="logo" src="/static/img/anyknew-b.png" width="158"/></a>
+<div class="funcs">
+
+</div>
+</div>
+</div>
+
+<div class="cpt">
+<div class="s-and-r">
+<div class="share" id="share_div">
+<div class="share-bar" id="share_bar">
+<div class="show-share active" id="show_share">
+<div class="title">
+<p>分</p>
+<p>享</p>
+</div>
+</div>
+<div class="show-retrieve" id="show_retrieve">
+<div class="title">
+<p>提</p>
+<p>取</p>
+</div>
+</div>
+<div class="show-qr" id="show_qr">
+<div class="title">
+<p>手</p>
+<p>机</p>
+<p>版</p>
+</div>
+</div>
+</div>
+<div class="share-content" id="share_ops">
+<div class="share-types">
+<div class="op active" id="show_share_file">
+<span>文 件</span>
+</div>
+<div class="op" id="show_share_text">
+<span>文 字</span>
+</div>
+</div>
+<div class="share-action" id="share_file" >
+<div id="select_file">
+<div class="upload" data-up-size-limit="204800" id="upload">
+<div class="fileBox" draggable='true' ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">
+<span id="fileSpan">拖拽到该区域</span>
+<p id="uploadfile"></p>
+<p class="fileInputP vm">
+<i id="pseudo_input">选择文件</i>
+<input type="file" id="fileInput" ref="fileInput" onchange="upload_with_input(event)" style="cursor: pointer">
+</p>
+</div>
+</div>
+<div class="btn-box">
+<div class="cp-checkbox-div">
+<input type="checkbox" id="cp_check" class="cp-checkbox">
+<label class="active" for="cp_check"></label>
+<span style="line-height: 15px; height: 13px; font-size:12px;">阅后即焚</span>
+</div>
+<button class="btn" id="save_file">上 传</button>
+</div>
+<div class="login-hint" style="width: 100%;">
+<div>阅后即焚: 文件被下载(或文字被浏览)一次后即删除</div>
+<div>默认有效期: 24小时</div>
+<div>匿名: 最大 200.0M，最多下载 10 次</div>
+<input id="serv-uxtime" value="1580476858" type="hidden">
+</div>
+</div>
+<div id="uploading" style="display: none;">
+<div id="progress">
+<span id="progress_bar"></span>
+</div>
+<div class="progress-hint">
+<i id="progress_hint">1%</i>
+</div>
+</div>
+</div>
+<div class="share-action" id="share_text" style="padding: 0;display: none;">
+<div id="editor">
+</div>
+<div class="btn-box">
+<div class="cp-checkbox-div">
+<input type="checkbox" id="cp_text_check" class="cp-checkbox">
+<label class="active" for="cp_text_check"></label>
+<span style="line-height: 15px; height: 13px; font-size:12px;">阅后即焚</span>
+</div>
+<button class="btn" id="save_text">提 交</button>
+</div>
+</div>
+<div class="share-tag" id="show_tag" style="display: none;">
+<div class="qr-box">
+<canvas id="scanvas" ></canvas>
+</div>
+<div class="hint">
+扫码即可下载/浏览，或使用如下提取码提取
+</div>
+<div class="tag">
+<span id="stag_hint">4151</span>
+</div>
+<div class="re-share-box">
+<button class="re-share" id="re_share">继续分享</button>
+</div>
+</div>
+</div>
+<div class="share-content retrieve" id="retrieve_ops" style="display: none;">
+<div class="input-box">
+<div>
+<input type="text" id="rtag" maxlength="4" placeholder="请输入4位提取码" class="rinput">
+</div>
+<div style="margin-top: 50px;">
+<button class="btn" id="rbtn">提 取</button>
+</div>
+</div>
+</div>
+<div class="share-content qr" id="qr_ops" style="display: none;">
+<div class="qr-box">
+<img src="/qrwap.html" width="200">
+</div>
+<div class="hint">
+不想输入请用手机扫码:)
+</div>
+<div class="url">
+<span>{$domain}</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<div class="left-op">
+<!-- <span><a href="/about" target="_blank" style="color: #3DB4F1">使用说明</a></span> -->
+</div>
+<div class="center-op" id="donate" style="cursor:pointer;">
+<!-- <img src="https://f0cdn.anyknew.com/cptool/img/donate.png" width="20" alt="MJJ - 轻量级纯Web跨平台文件、文字分享工具">
+<div style="margin-left: 5px;">打赏</div> -->
+</div>
+<div>
+	<!-- 右下角logo -->
+<a href="#"><img src="/static/img/cptool-trans.png" width="130" alt="MJJ - 轻量级纯Web跨平台文件、文字分享工具"></a>
+</div>
+</div>
+<div class="donate-modal" style="display: none" id="donate_modal">
+<div style="width: 400px;height: 375px;background-color: #FFF;margin: auto;margin-top: 130px;text-align: center;border-radius: 5px;">
+<br>
+<br>
+</div>
+<div class="close-box">
+<img class="close-img" src="/static/img/close.png" id="cloase_modal">
+</div>
+</div>
+
+<div class="fz-loading-mask" id="fz_loading_mask">
+<span class="loading"></span>
+<span class="load-hint" id="fz_loading_hint">努力加载中, 马上就好</span>
+</div>
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/cpt.js?rnd=19122503"></script>
+<script src="https://f0cdn.anyknew.com/cptool/js/qr-logo.js?rnd=190107"></script>
+<script src="/static/js/quill.js"></script>
+<script>
+$(document).ready(function () {
+$('#donate').click(function () {
+$("#donate_modal").show()
+})
+$('#cloase_modal').click(function () {
+$("#donate_modal").hide()
+})
+});
+var toolbarOptions = [
+[{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+['bold', 'strike'],
+[{ 'color': [] }],
+[{ 'align': [] }],
+['code-block'],
+['clean']
+];
+var quill = new Quill('#editor', {
+modules: {
+toolbar: toolbarOptions
+},
+placeholder: '5000字以内, "格式清除"为工具栏最后一个图标',
+theme: 'snow',
+});
+var toolbar = quill.getModule('toolbar');
+</script>
+<script>
+$(document).ready(function() {
+msite = false;
+size_limit = parseInt($("#upload").attr("data-up-size-limit"));
+});
+</script>
+
+</body>
+</html>

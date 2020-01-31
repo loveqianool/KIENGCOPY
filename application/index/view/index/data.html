@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<title>MJJ - 轻量级纯Web跨平台文件、文字分享工具</title>
+<meta charset="utf-8">
+<meta name="keywords" content="MJJ,Copytool,免安装传文件,  跨平台分享,Mac,Windows,Android,分享">
+<meta name="description" content="MJJ首页 跨系统免安装传文件, 跨平台分享工具，纯Web，IOS，MAC，Linux，Android互传">
+<meta name="viewport" content="width=device-width">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link href="/static/css/quill.snow.min.css" rel="stylesheet">
+<link href="/static/css/cpt.css?rnd=190320" rel="stylesheet">
+<style type="text/css" media="screen">
+	a:hover
+    { 
+        color:yellow;
+    }
+</style>
+</head>
+<body>
+<div class="akheader">
+<div class="ak-logo-box">
+<a href="#"><img class="logo" src="/static/img/anyknew-b.png" width="158"/></a>
+<div class="funcs">
+
+</div>
+</div>
+</div>
+
+<div class="cpt-show">
+<div class="cpt-file">
+{if $is}
+{if $type == 'text'}
+{$data['content']|htmlspecialchars_decode}
+{else}
+<p class="orig">{$data['name']}</p>
+<p class="fsize">可用下载次数: {$data['num']}</p>
+<div class="dl-btn" id="do_dl" data-tag="tp2s">
+<img src="https://f0cdn.anyknew.com/cptool/img/dl-file.png" width="23">
+<span class="helper"><a href="/dl/{$data['tag']}.html" title="">下载文件</a></span>
+</div>
+{/if}
+{else}
+<p class="orig">失效或提取码不正确</p>
+{/if}
+</div>
+
+<div class="cp-index" style="text-align: center;padding: 20px;">
+<p><a href="/" style="font-size: 1.1rem;color: #3DB4F1;">&lt;&lt;返回MJJ</a></p>
+</div>
+</div>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+</body>
+</html>
