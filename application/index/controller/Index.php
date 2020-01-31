@@ -5,30 +5,37 @@ use think\Controller;
 use think\Db;
 
 class Index extends Controller {
+	// 首页
 	public function index() {
 		$domain = request()->domain();
 		$this->assign('domain', $domain);
 		return $this->fetch('index/index');
 	}
 
+	// 手机端二维码(没啥用)
 	public function qrwap() {
 		header('Content-type: image/png');
 		return Qrcode::Qr(request()->domain());
 	}
 
+	// 那个网站是阿里云oos的这个是验证token的方法,但是我这个是上传到本地的,因为是按照他的写,所以就写了这段.
+	// 总结就是没啥用这个方法
 	public function updl() {
 		return json(['msg' => 'Success', 'status' => 0]);
 	}
-
+	// 上传文件
 	public function stag() {
 		// 判断文件类型
 		$stype = request()->post('stype/s');
 		// 判断是否阅读后就销毁
 		$burn = request()->post('burn/s');
+		// 立即销毁可读次数就是1 反之10
 		$num = $burn == 'false' ? 10 : 1;
 		if ($stype == 'file') {
 			$file = request()->file('file');
 			if ($file) {
+				// 控制一下上传文件大小
+				// ###这里没限制上传文件的后缀 可能会被上传PHP文件自己在服务器端限制一下 或者['size' => 204800]改成['size' => 204800,'ext'=>'jpg,png,zip......']
 				$info = $file->validate(['size' => 204800])->move(ROOT_PATH . 'public' . DS . 'uploads');
 				if ($info) {
 					$img = str_replace('\\', '/', $info->getSaveName());
@@ -101,6 +108,7 @@ class Index extends Controller {
 		if ($data['num'] <= 0 || time() > strtotime($data['end_time']) || empty($data)) {
 			return $this->redirect('/s/' . $key);
 		} else {
+			// 清空缓冲 下载
 			ob_clean();
 			@Db::table('data')->where('tag', $token)->update(['num' => $data['num'] - 1]);
 			$filepath = trim(str_replace('\\', '/', ROOT_PATH), '/') . '/public/' . $data['file_path'];
