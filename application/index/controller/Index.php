@@ -54,6 +54,7 @@ class Index extends Controller {
 						'name' => $file->getInfo()['name'],
 						'add_time' => date('Y-m-d H:i:s'),
 						'end_time' => date('Y-m-d H:i:s', strtotime('+1 day')),
+						'ip' => getIp(),
 					]);
 					if ($bool) {
 						return json(['status' => 0, 'msg' => 'ok', 'data' => ['tag' => $key, 'url' => request()->domain() . '/s/' . $key]]);
@@ -77,6 +78,7 @@ class Index extends Controller {
 				'content' => htmlspecialchars($content),
 				'add_time' => date('Y-m-d H:i:s'),
 				'end_time' => date('Y-m-d H:i:s', strtotime('+1 day')),
+				'ip' => getIp(),
 			]);
 			if ($bool) {
 				return json(['status' => 0, 'msg' => 'ok', 'data' => ['tag' => $key, 'url' => request()->domain() . '/s/' . $key]]);
