@@ -126,7 +126,8 @@ class Index extends Controller {
 			// 清空缓冲 下载
 			ob_clean();
 			@Db::table('data')->where('tag', $token)->update(['num' => $data['num'] - 1]);
-			$filepath = trim(str_replace('\\', '/', ROOT_PATH), '/') . '/public/' . $data['file_path'];
+			$filepath = THINK_PATH . '../public' . $data['file_path'];
+
 			$filename = $data['name'];
 			if (!file_exists($filepath)) {
 				return $this->redirect('/s/' . $key);
