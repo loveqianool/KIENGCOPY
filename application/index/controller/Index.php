@@ -42,7 +42,7 @@ class Index extends Controller {
 			if ($file) {
 				// 控制一下上传文件大小
 				// ###这里没限制上传文件的后缀 可能会被上传PHP文件自己在服务器端限制一下 或者['size' => 204800]改成['size' => 204800,'ext'=>'jpg,png,zip......']
-				$info = $file->validate(['size' => 204800])->move(ROOT_PATH . 'public' . DS . 'uploads');
+				$info = $file->validate(['size' => 20480000])->move(ROOT_PATH . 'public' . DS . 'uploads');
 				if ($info) {
 					$img = str_replace('\\', '/', $info->getSaveName());
 					$file_path = '/uploads/' . $img;
