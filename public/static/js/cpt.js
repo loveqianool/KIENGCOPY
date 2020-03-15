@@ -295,7 +295,7 @@
           fz_transit(1, "提取码输入有误", 2000);
           return false;
         }
-       window.location.href = '/s/'+tag;
+        window.location.href = '/s/'+tag;
       });
 
       $("#do_dl").click(function(){
@@ -406,6 +406,7 @@ function upload() {
       })
     }
 
+
     function multipartUploadWithSts(file,burn) {
       $("#select_file").hide();
       $("#uploading").show();
@@ -417,6 +418,20 @@ function upload() {
         url:'/stag.html', /*接口域名地址*/
         type:'post',
         data: formData,
+        xhr:function(){                        
+            myXhr = $.ajaxSettings.xhr();
+            if(myXhr.upload){ // check if upload property exists
+             myXhr.upload.addEventListener('progress',function(e){                            
+               var loaded = e.loaded;                  //已经上传大小情况 
+                var total = e.total;                      //附件总大小 
+                var percent = Math.floor(100*loaded/total);     //已经上传的百分比  
+                console.log("已经上传了："+percent);                 
+                $("#progress_bar").css({width: percent+'%'});  
+                $("#progress_hint").html(percent + '%');                                                          
+                }, false); // for handling the progress of the upload
+             }
+                        return myXhr;
+        }, 
         contentType: false,
         processData: false,
         success:function(res){
@@ -425,19 +440,22 @@ function upload() {
           $("#show_tag").show();
           if(res.status==0){
             $("#fz_loading_mask").hide();
-          if(msite){
-            _width = 200
-          }
-          else{
-            _width = 200
-          }
-          QrCodeWithLogo.toCanvas({
-            canvas: document.getElementById("scanvas"),
-            content: res.data.url,
-            width: _width,
-          });
-          $("#stag_hint").html(res.data.tag)
+            if(msite){
+              _width = 200
+            }
+            else{
+              _width = 200
+            }
+            QrCodeWithLogo.toCanvas({
+              canvas: document.getElementById("scanvas"),
+              content: res.data.url,
+              width: _width,
+            });
+            $("#stag_hint").html(res.data.tag)
           }else if(res.status==1){
+           $("#fz_loading_hint").html("上传中，请稍后")
+          $("#fz_loading_mask").hide();
+          $("#select_file").show();
             fz_transit(res.status, res.msg, 2000);
           }else{
             fz_transit(res.status, res.msg, 2000);
