@@ -46,7 +46,7 @@ class Index extends Controller {
 				if ($info) {
 					$img = str_replace('\\', '/', $info->getSaveName());
 					$file_path = '/uploads/' . $img;
-					$key = randKey(4);
+					$key = $this->getTag(4);
 					$bool = Db::table('data')->insert([
 						'tag' => $key,
 						'file_path' => $file_path,
@@ -87,6 +87,17 @@ class Index extends Controller {
 			}
 		}
 
+	}
+
+	public function getTag($len) {
+		$key = randKey($len);
+		// 查询是否存在key
+		$is_k = Db::table('data')->where('tag', $key)->value('id');
+		if ($is_k) {
+			return $this->getTag($len);
+		} else {
+			return $key;
+		}
 	}
 
 	public function getData($key) {
