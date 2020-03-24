@@ -69,7 +69,7 @@ class Index extends Controller {
 			}
 		} else {
 			$content = request()->post('content/s');
-			$key = randKey(4);
+			$key = $this->getTag(4);
 			$file_path = '/';
 			$bool = Db::table('data')->insert([
 				'tag' => $key,
